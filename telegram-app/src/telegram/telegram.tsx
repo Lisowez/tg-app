@@ -6,7 +6,6 @@ export default function telega() {
     return initDataUnsafe.user.language_code;
   } else {
     //@ts-ignore
-    console.log(window.Telegram.WebApp);
     return "";
   }
 }

@@ -17,14 +17,14 @@ export interface Data {
   language: "original" | "translated";
 }
 
-async function getAllHoroscope(): Promise<Data | null> {
+async function getAllHoroscope(language: string): Promise<Data | null> {
   try {
     const data = await fetch("https://poker247tech.ru/get_horoscope/", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ language: "original" }),
+      body: JSON.stringify({ language: language }),
     });
     const response = await data.json();
     return response;

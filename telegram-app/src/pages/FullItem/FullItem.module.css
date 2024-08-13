@@ -1,0 +1,33 @@
+.title,
+.date {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.item {
+  width: 250px;
+  height: 250px;
+  display: flex;
+  flex-direction: column;
+  border: 2px solid black;
+  align-items: center;
+  justify-content: center;
+  transform: scale(1);
+  transition: 1s;
+}
+
+.img_div {
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.info {
+  display: flex;
+  margin: 0 auto;
+  flex-direction: column;
+  gap: 20px;
+}
+
+

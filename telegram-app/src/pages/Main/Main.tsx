@@ -1,14 +1,18 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import getAllHoroscope, { Horoscope } from "../../API/api";
 import Item from "../Item/Item";
+import { LanguageContext } from "../../utils/context";
 
 export default function Main() {
+  const language = useContext(LanguageContext);
   const [data, setData] = useState<Horoscope | null>(null);
 
   useEffect(() => {
     async function fetchData() {
       try {
-        const dataApi = await getAllHoroscope();
+        const dataApi = await getAllHoroscope(
+          language!.language === "ru" ? "original" : "translated"
+        );
         if (dataApi) {
           setData(dataApi.horoscopes);
         }
@@ -17,8 +21,7 @@ export default function Main() {
       }
     }
     fetchData();
-  }, []);
-
+  }, [language]);
   return (
     <main>
       {data ? (

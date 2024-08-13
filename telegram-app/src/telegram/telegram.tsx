@@ -1,6 +1,12 @@
 export default function telega() {
   //@ts-ignore
-  console.log(window.Telegram.WebApp.initDataUnsafe.user);
-  //@ts-ignore
-  return window.Telegram.WebApp;
+  const { initDataUnsafe } = window.Telegram.WebApp;
+  if (initDataUnsafe?.user?.language_code) {
+    console.log(initDataUnsafe.user.language_code);
+    return initDataUnsafe.user.language_code;
+  } else {
+    console.log("User language code not available");
+    //@ts-ignore
+    return "111";
+  }
 }

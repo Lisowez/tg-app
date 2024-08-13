@@ -2,8 +2,13 @@ import Main from "./pages/Main/Main";
 import telega from "./telegram/telegram";
 
 function App() {
-  telega();
-  return <Main />;
+  const data = telega();
+  return (
+    <>
+      <Main />
+      <div>{data}</div>
+    </>
+  );
 }
 
 export default App;

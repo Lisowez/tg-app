@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react";
+import { useState } from "react";
 import telega from "./telegram/telegram";
 import { LanguageContext } from "./utils/context";
 import { RouterProvider } from "react-router-dom";
@@ -7,16 +7,15 @@ import { router } from "./utils/routing";
 function App() {
   const telegramWebApp = telega();
   const [languageInfo, setLanguageInfo] = useState("ru");
-  const language = useMemo(() => {
-    if (
-      telegramWebApp &&
-      telegramWebApp.initDataUnsafe?.user?.language_code === "ru"
-    ) {
-      setLanguageInfo("ru");
-    } else {
-      setLanguageInfo("eng");
-    }
-  }, [telegramWebApp]);
+
+  if (
+    telegramWebApp &&
+    telegramWebApp.initDataUnsafe?.user?.language_code === "ru"
+  ) {
+    setLanguageInfo("ru");
+  } else {
+    setLanguageInfo("eng");
+  }
 
   return (
     <LanguageContext.Provider value={languageInfo}>

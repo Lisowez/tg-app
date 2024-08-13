@@ -11,7 +11,7 @@ export default function Main() {
     async function fetchData() {
       try {
         const dataApi = await getAllHoroscope(
-          language!.language === "ru" ? "original" : "translated"
+          language === "ru" ? "original" : "translated"
         );
         if (dataApi) {
           setData(dataApi.horoscopes);

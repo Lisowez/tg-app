@@ -1,9 +1,4 @@
-import React from "react";
-import {
-  RouterProvider,
-  createBrowserRouter,
-  useParams,
-} from "react-router-dom";
+import { createBrowserRouter } from "react-router-dom";
 import Main from "../pages/Main/Main";
 import { FullItem } from "../pages/FullItem/FullItem";
 

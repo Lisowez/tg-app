@@ -4,6 +4,7 @@ import { useContext, useEffect, useState } from "react";
 import dataArray from "../../data/data";
 import getHoroscope from "../../API/getHoroscope";
 import { LanguageContext } from "../../utils/context";
+import { useSwipeable } from "react-swipeable";
 
 export function FullItem() {
   const language = useContext(LanguageContext);
@@ -45,8 +46,13 @@ export function FullItem() {
     window.Telegram.WebApp.BackButton.onClick(navigate("/"));
   };
 
+  const handlers = useSwipeable({
+    onSwipedRight: () => navigate("/"),
+    trackMouse: true,
+  });
+
   return (
-    <div className='fullItem'>
+    <div className='fullItem' {...handlers}>
       <div className={style.img_div} style={{ marginTop: "50px" }}>
         {img && <img style={{ width: "200px" }} src={img} alt={id} />}
       </div>

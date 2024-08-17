@@ -13,7 +13,7 @@ export interface Horoscope {
   virgo: string;
 }
 export interface Data {
-  horoscopes: Horoscope;
+  horoscope: Horoscope;
   language: "original" | "translated";
 }
 
@@ -24,7 +24,7 @@ async function getAllHoroscope(language: string): Promise<Data | null> {
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ language: language }),
+      body: JSON.stringify({ language: language, period: "today" }),
     });
     const response = await data.json();
     return response;

@@ -14,7 +14,7 @@ async function getHoroscope(
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ language: language, sign: sign }),
+      body: JSON.stringify({ language: language, sign: sign, period: "today" }),
     });
     const response = await data.json();
     return response;

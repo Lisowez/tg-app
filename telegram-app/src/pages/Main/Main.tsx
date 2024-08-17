@@ -14,7 +14,7 @@ export default function Main() {
           language === "ru" ? "original" : "translated"
         );
         if (dataApi) {
-          setData(dataApi.horoscopes);
+          setData(dataApi.horoscope)
         }
       } catch (error) {
         console.error("Ошибка при получении данных:", error);
@@ -31,7 +31,10 @@ export default function Main() {
           })}
         </div>
       ) : (
-        <div>Загрузка...</div>
+        <div>
+          Загрузка...{language}
+          {data}
+        </div>
       )}
     </main>
   );
